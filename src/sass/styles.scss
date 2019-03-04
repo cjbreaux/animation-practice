@@ -1,8 +1,186 @@
 $font-stack: Helvetica, sans-serif;
 $primary-font-color: red;
+@import url('https://fonts.googleapis.com/css?family=Srisakdi');
+
 
 body {
   font: 100% $font-stack;
   color: $primary-font-color;
   background-color: pink;
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  background-color: blue;
+  transition-property: background-color;
+  // transition-duration: 5s;
+  transition: background-color 5s;
+}
+
+.box:hover {
+  background-color: yellow;
+
+
+}
+
+.box:nth-child(3) {
+  background-color: red;
+  color: black;
+  transition: border-radius 5s;
+}
+
+.box:nth-child(3):hover {
+border-radius: 50%;
+animation: bounce 1000ms linear 1 both;
+
+}
+
+.box:nth-child(4) {
+  background-color: red;
+  color: black;
+  border-radius: 50%;
+  border: 3px dashed black;
+  animation-duration: 5s, 2s;
+  animation-name: rainbow, spin;
+  animation-iteration-count: infinite;
+}
+
+.box:nth-child(4):hover {
+  animation-duration: 2s;
+  animation-name: spin;
+  animation-play-state: paused;
+
+}
+
+.box:nth-child(5) {
+  background-color: green;
+  color: black;
+  transition: width 0.2s;
+
+}
+
+.box:nth-child(5):hover {
+width: 300px;
+animation-duration: 0.2s;
+animation-name: wiggle;
+animation-iteration-count: 3;
+animation-timing-function: ease-in-out;
+
+}
+
+@keyframes rainbow {
+  0% {background-color: red; }
+  14%{background-color: orange;}
+  28%{background-color: yellow;}
+  42%{background-color: green;}
+  56%{background-color: blue;}
+  70%{background-color: purple;}
+  84%{background-color: indigo;}
+  100%{background-color: violet;}
+}
+
+@keyframes spin {
+  to {transform: rotate(0deg);}
+  from {transform: rotate(360deg);}
+}
+
+
+
+.animation-target {
+  animation: bounce 1000ms linear 1 both;
+}
+
+/* Generated with Bounce.js. Edit at https://goo.gl/KHbTxj */
+
+@keyframes bounce {
+  0% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  5.61% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 27.073, 0, 1); }
+  8.41% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 40.16, 0, 1); }
+  11.11% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 50, 0, 1); }
+  14.91% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 41.756, 0, 1); }
+  18.72% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 39.395, 0, 1); }
+  26.03% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 44.059, 0, 1); }
+  33.33% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 50, 0, 1); }
+  41.04% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 48.041, 0, 1); }
+  55.66% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 49.99, 0, 1); }
+  63.26% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 49.638, 0, 1); }
+  77.88% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 49.998, 0, 1); }
+  85.49% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 49.933, 0, 1); }
+  100% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 50, 0, 1); }
+}
+
+@keyframes wiggle {
+  0%{transform: translateX(0px);}
+  25%{transform: translateX(5px);}
+  50%{transform: translateX(0px);}
+  75%{transform: translateX(-5px);}
+  100%{transform: translateX(0px);}
+}
+
+
+
+
+
+
+
+
+.navBar {
+  display: flex;
+  min-height: 50px;
+
+  justify-content: space-around;
+}
+
+.home {
+  font-size: 1em;
+  // width: 100px;
+  // height: 50px;
+  transition: font-size 1s;
+  background-color: black;
+  border: 2px solid white;
+}
+
+.home:hover {
+
+  font-size: 50px;
+  animation-name: spin-text;
+  animation-duration: 3s;
+}
+
+.about {
+  background-color: black;
+  border: 2px solid white;
+  transition-duration: 0.5s;
+  max-height: 50px;
+
+}
+
+.about:hover {
+  transform: rotateX(360deg);
+  background-color: white;
+  color: blue;
+}
+
+@keyframes spin-text{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(1080deg);}
+}
+
+
+
+.contact {
+  background-color: black;
+  border: 2px solid white;
+  transition-duration: 0.5s;
+  max-height: 50px;
+
+}
+
+.contact:hover {
+  font-family: 'Srisakdi', cursive;
 }
